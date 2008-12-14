@@ -5,8 +5,8 @@
 Summary:	MAT File I/O Library
 Name:		matio
 Version:	1.3.3
-Release:	%mkrel 1
-License:	GPL
+Release:	%mkrel 2
+License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/matio/
 Source0:	http://downloads.sourceforge.net/matio/%{name}-%{version}.tar.bz2
@@ -24,6 +24,7 @@ for reading and writing Matlab MAT files.
 %package -n %{libname}
 Summary:	MAT File I/O Library
 Group:		System/Libraries
+Provides:	lib%{name} = %{version}-%{release}
 
 %description -n %{libname}
 matio is an ISO C library (with a limited Fortran 90 interface)
