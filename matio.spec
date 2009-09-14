@@ -5,7 +5,7 @@
 Summary:	MAT File I/O Library
 Name:		matio
 Version:	1.3.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/matio/
