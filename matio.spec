@@ -4,13 +4,13 @@
 
 Summary:	MAT File I/O Library
 Name:		matio
-Version:	1.3.3
-Release:	%mkrel 3
+Version:	1.3.4
+Release:	%mkrel 1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/matio/
 Source0:	http://downloads.sourceforge.net/matio/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-1.3.3-fix-underlinking.patch
+Patch0:		%{name}-1.3.4-fix-underlinking.patch
 BuildRequires:	zlib-devel
 BuildRequires:	doxygen
 BuildRequires:	tetex-dvips
@@ -45,7 +45,7 @@ Development files and headers for %{name}.
 %patch0 -p1
 
 %build
-./bootstrap
+#./bootstrap
 %configure2_5x \
 	--enable-shared \
 	--disable-fortran \
@@ -56,6 +56,9 @@ Development files and headers for %{name}.
 	--with-libdir-suffix=lib64
 	%endif
 
+# remove rpath from libtool
+sed -i.rpath 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i.rpath 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
 %make
 
