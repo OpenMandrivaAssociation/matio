@@ -16,6 +16,7 @@ BuildRequires:	doxygen
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
 BuildRequires:	texlive-refman
+BuildRequires:	ghostscript
 
 %description
 matio is an ISO C library (with a limited Fortran 90 interface)
