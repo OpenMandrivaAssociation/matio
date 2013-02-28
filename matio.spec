@@ -5,17 +5,16 @@
 Summary:	MAT File I/O Library
 Name:		matio
 Version:	1.3.4
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/matio/
 Source0:	http://downloads.sourceforge.net/matio/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-1.3.4-fix-underlinking.patch
+Patch0:			%{name}-1.3.4-fix-underlinking.patch
 BuildRequires:	zlib-devel
 BuildRequires:	doxygen
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 matio is an ISO C library (with a limited Fortran 90 interface)
