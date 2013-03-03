@@ -74,7 +74,7 @@ rm -rf %{buildroot}%{_docdir}/matio
 
 %files -n %{develname}
 %defattr(-,root,root)
-%doc NEWS README ChangeLog doxygen/latex/libmatio.pdf
+%doc NEWS README ChangeLog
 %{_includedir}/*.h
 %{_libdir}/*%{name}.so
 %{_libdir}/*%{name}.*a
