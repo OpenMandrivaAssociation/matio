@@ -52,7 +52,7 @@ Development files and headers for %{name}.
 	--disable-fortran \
 	--enable-extended-sparse=yes \
 	--enable-test=no \
-	--enable-docs=yes \
+	--enable-docs=no \
 	%if %{_lib} != lib
 	--with-libdir-suffix=lib64
 	%endif
