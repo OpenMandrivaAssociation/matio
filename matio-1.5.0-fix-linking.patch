@@ -1,0 +1,13 @@
+diff --git a/src/Makefile.am b/src/Makefile.am
+index ef8f0cc..1c9def1 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -45,7 +45,7 @@ noinst_HEADERS         = matio_private.h mat4.h mat5.h mat73.h
+ lib_LTLIBRARIES        = libmatio.la
+ libmatio_la_SOURCES    = snprintf.c endian.c io.c $(ZLIB_SRC) read_data.c \
+                          mat5.c mat4.c mat.c matvar_cell.c matvar_struct.c
+-libmatio_la_LIBADD     = $(ZLIB_LIBS)
++libmatio_la_LIBADD     = $(ZLIB_LIBS) -lhdf5_cpp -lhdf5
+ 
+ if MAT73
+ libmatio_la_SOURCES+= mat73.c
