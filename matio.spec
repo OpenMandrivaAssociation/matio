@@ -5,7 +5,7 @@
 Summary:	MAT File I/O Library
 Name:		matio
 Version:	1.5.2
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/matio/
