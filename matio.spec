@@ -1,16 +1,15 @@
-%define major 2
+%define major 4
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
 Summary:	MAT File I/O Library
 Name:		matio
-Version:	1.5.2
-Release:	4
+Version:	1.5.10
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://sourceforge.net/projects/matio/
-Source0:	http://downloads.sourceforge.net/matio/%{name}-%{version}.tar.gz
-Patch0:		matio-1.5.0-fix-linking.patch
+Url:		https://sourceforge.net/projects/matio/
+Source0:	https://sourceforge.net/projects/matio/files/%{name}-%{version}.tar.gz
 BuildRequires:	doxygen
 BuildRequires:	ghostscript
 BuildRequires:	texlive
@@ -22,6 +21,7 @@ matio is an ISO C library (with a limited Fortran 90 interface)
 for reading and writing Matlab MAT files.
 
 %files
+%doc COPYING
 %{_bindir}/matdump
 
 #----------------------------------------------------------------------------
@@ -35,6 +35,7 @@ matio is an ISO C library (with a limited Fortran 90 interface)
 for reading and writing Matlab MAT files.
 
 %files -n %{libname}
+%doc COPYING
 %{_libdir}/lib%{name}.so.%{major}*
 
 #----------------------------------------------------------------------------
@@ -49,7 +50,7 @@ Provides:	%{name}-devel = %{EVRD}
 Development files and headers for %{name}.
 
 %files -n %{devname}
-%doc NEWS README
+%doc NEWS README COPYING
 %{_includedir}/*.h
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/*.pc
@@ -59,17 +60,14 @@ Development files and headers for %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%apply_patches
 
 %build
-autoreconf -fi
-%configure2_5x \
-	--enable-shared \
-	--disable-static \
+autoreconf -fiv
+%configure \
 	--enable-extended-sparse=yes \
-	%if %{_lib} != lib
-	--with-libdir-suffix=lib64
-	%endif
+	--with-libdir-suffix=%{_lib} \
+	%{nil}
 
 # remove rpath from libtool
 sed -i.rpath 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
@@ -79,6 +77,4 @@ sed -i.rpath 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
 %install
 %makeinstall_std
-
-rm -rf %{buildroot}%{_docdir}/matio
 
