@@ -1,10 +1,10 @@
-%define major 4
+%define major 9
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
 Summary:	MAT File I/O Library
 Name:		matio
-Version:	1.5.10
+Version:	1.5.17
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -77,4 +77,3 @@ sed -i.rpath 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
 %install
 %makeinstall_std
-
