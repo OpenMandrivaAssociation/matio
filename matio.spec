@@ -1,10 +1,11 @@
-%define major 9
-%define libname %mklibname %{name} %{major}
+%define major 11
+%define oldlibname %mklibname %{name} 9
+%define libname %mklibname %{name}
 %define devname %mklibname %{name} -d
 
 Summary:	MAT File I/O Library
 Name:		matio
-Version:	1.5.17
+Version:	1.5.23
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -29,6 +30,7 @@ for reading and writing Matlab MAT files.
 %package -n %{libname}
 Summary:	MAT File I/O Library
 Group:		System/Libraries
+Obsoletes:	%{oldlibname} < %{EVRD}
 
 %description -n %{libname}
 matio is an ISO C library (with a limited Fortran 90 interface)
